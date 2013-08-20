@@ -1,0 +1,36 @@
+<div class="container">
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+        <td align="center">
+            访问地址
+        </td>
+        <td align="left">
+            最后访问时间
+        </td>
+        <td align="center">
+            访问次数
+        </td>
+        </tr>
+    </thead>
+    <tbody>
+    {#foreach $T.List as record}
+    <tr>
+        <td align="center">{$T.record.path}</td>
+        <td align="center">{(new Date($T.record.lastdate)).format("yyyy-MM-dd hh:mm:ss")}</td>
+        <td align="center">{$T.record.time}</td>
+    </tr>
+    {#/for}
+    <tr>
+        <td colspan="3" align="center">
+            <label>处理时间：</label> {$T.HandleTime}
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3">
+            <a id="btn_area" class="btn btn-block btn-inverse">地区管理</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</div>

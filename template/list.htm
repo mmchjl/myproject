@@ -1,0 +1,25 @@
+﻿<div class="right_div">
+    {#if $T.result}
+        <div>
+        {#for i=1 to $T.data.list.length}
+            <section class="padding-small articleItem" aid="{$T.data.list[$T.i-1]._id}">
+                <div>
+                    <span class="list_title" aid="{$T.data.list[$T.i-1]._id}">{$T.data.list[$T.i-1].title_str}</span>
+                    <em> <i class="icon-time" title="记录于{new Date($T.data.list[$T.i-1].updateTime_date).format("yyyy-MM-dd hh:mm:ss")}"></i> { new Date($T.data.list[$T.i-1].updateTime_date).format("yyyy-MM-dd hh:mm:ss")}</em>
+                    {#if $T.data.list[$T.i-1].replies!=0}<em><i class="icon-comment">{$T.data.list[$T.i-1].replies}</i></em>{#/if}
+                    {#for j=1 to $T.data.list[$T.i-1].tags.length}
+                        {#if $T.data.list[$T.i-1].tags[$T.j-1].name_str}
+                            <em class="list_tags"><i title="标签" class="icon-tags">{$T.data.list[$T.i-1].tags[$T.j-1].name_str}</i></em>
+                        {#/if}
+                    {#/for}
+                    <hr class="list_header_line"/>
+                    <p class="list_Synopsis"><strong>概要:</strong>{#if $T.data.list[$T.i-1].synopsis_str}{$T.data.list[$T.i-1].synopsis_str}{#/if}</p>
+                    <div><i class="icon-hand-up list_check" title="查看文章"></i></div>
+                </div>
+            </section>
+        {#/for}
+        </div>
+    {#else}
+        <p>没有任何文章</p>
+    {#/if}
+</div>

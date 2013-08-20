@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="page-header editTitle">
+            <p>人的一生是一场马拉松，一时的快慢并不代表什么，关键是能坚持到最后</p>
+            <em id="circle_back">后退</em>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span3 aside">
+            <div class="control-group">
+                <h6 class="control-label">Title</h6>
+                <input type="text" id="txt_title" class="controls" value="{$T.title_str}" {#if $T._id}aid="{$T._id}"{#/if} />
+                <h6>类别</h6>
+                <select id="sel_type">
+                    <option value="1" {#if $T.type_int==1}selected="selected"{#/if}>技术</option>
+                    <option value="2" {#if $T.type_int==2}selected="selected"{#/if}>生活</option>
+                    <option value="3" {#if $T.type_int==3}selected="selected"{#/if}>兴趣</option>
+                </select>
+                <h6>标签</h6>
+                <input id="txt_badge"  type="text"/><input id="btn_badge" type="button" value="添加" class="btn btn-primary"/>
+                <fieldset id="badges">
+                    {#if $T.tags}
+                        {#for i = 1 to $T.tags.length}
+                            <span class='badge badge-info mbadge'>{$T.tags[$T.i-1].name_str}</span>
+                        {#/for}
+                    {#/if}
+                </fieldset>
+                <br/>
+                <h6>概要</h6>
+                <textarea name="" id="txt_synopsis" cols="30" rows="10">{$T.synopsis_str}</textarea>
+                <br/>
+                <br/>
+                <input type="button" class="btn btn-primary btn_submit" value="提交" id="btn_submit"/>
+            </div>
+
+        </div>
+        <div class="span8 articleinput">
+            <textarea  id="content" style="width:850px;height:500px;visibility:hidden;" cols="30" rows="10"></textarea>
+        </div>
+    </div>
+</div>
