@@ -371,6 +371,7 @@ NengLongTemplate.prototype.load = function(ops, isExtendBySelf, deep, isExtendPr
             //设最后的参数
             G_Template_Params.options = options;
 
+
             this.templateLoad(options, extendOnloadEvent);
         }
     }
@@ -639,7 +640,7 @@ NengLongTemplate.prototype.templateProcess = function(options, data, contents) {
 NengLongTemplate.prototype.getTemplateOptions = function(obj) {
     var app = obj.app, cmd = obj.cmd;
     var returnVal = null;
-
+    //debugger;
     if (typeof (app) != "undefined" && app != null) G_Template_Params.app = app;
     if (typeof (cmd) != "undefined" && cmd != null) G_Template_Params.cmd = cmd;
     var cApp = G_Template_Params.app, cCmd = G_Template_Params.cmd;
@@ -1090,13 +1091,13 @@ Nenglong.UI.PageControl = function(param) {
 //=================================================================UI END==========================================================================//
 
 //=================================================================AJAX共用方法 BEGIN==========================================================================//
-Namespace.Register("Nenglong.Ajax");
-Nenglong.Ajax.PostData = function(url, ops, successCallback, errorCallback, async, isStandardFormat) {
-    Nenglong.Ajax.AjaxData(url, ops, successCallback, errorCallback, "post", async, isStandardFormat);
+Namespace.Register("ajax");
+ajax.postData = function(url, ops, successCallback, errorCallback, async, isStandardFormat) {
+    ajax.ajaxData(url, ops, successCallback, errorCallback, "post", async, isStandardFormat);
 };
 
-Nenglong.Ajax.GetData = function(url, ops, successCallback, errorCallback, async, isStandardFormat) {
-    Nenglong.Ajax.AjaxData(url, ops, successCallback, errorCallback, "get", async, isStandardFormat);
+ajax.getData = function(url, ops, successCallback, errorCallback, async, isStandardFormat) {
+    ajax.ajaxData(url, ops, successCallback, errorCallback, "get", async, isStandardFormat);
 };
 
 //返回类型固定格式：
@@ -1104,7 +1105,7 @@ Nenglong.Ajax.GetData = function(url, ops, successCallback, errorCallback, async
 //    result: 获取数据结果，true表示成功，false表示出错；没有此值，也表示错误，也会调用errorCallback
 //    Data: 数据，成功时返回数据json对象，失败时返回错误信息
 //}
-Nenglong.Ajax.AjaxData = function(url, ops, successCallback, errorCallback, ajaxType, async, isStandardFormat) {
+ajax.ajaxData = function(url, ops, successCallback, errorCallback, ajaxType, async, isStandardFormat) {
     var _isStandardFormat = true;
     if (isStandardFormat == false)
         _isStandardFormat = false;

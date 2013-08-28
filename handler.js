@@ -9,19 +9,29 @@ var handlers = {};
 (function(){
     var appPath = "./handleapp";
     var extname = ".js";
+    getHandler(appPath);
+})();
+
+function getHandler(appPath){
+    var reg = /^.*\.js$|^.*\.node$/;
     fs.readdir(appPath,function(err,files){
         if(err){
             return utility.handleException(err);
         }
         files.forEach(function(file){
+            var extname = ".js";
             var filename = path.basename(file);
             var modulename = path.basename(file,extname);
-            var filepath = appPath+"/"+filename;
-            handlers[modulename] = require(filepath);
+            var filepath = appPath+"\\"+filename;
+            if(reg.test(file)){
+                handlers[modulename] = require(filepath);
+            }else{
+                var _p = appPath+"\\"+file;
+                getHandler(_p)
+            }
         })
-        console.dir(handlers);
     })
-})();
+}
 
 function handle(header,response){
 	var handler = header.handler.toLowerCase();
@@ -145,3 +155,4 @@ var defaultHandler = {
 }
 
 module.exports.handle = handle;
+module.exports.explain = handlers;

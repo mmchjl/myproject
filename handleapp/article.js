@@ -355,3 +355,5 @@ var app = new handleBase("article",_handler);
 app.isAuthorization = false;
 
 module.exports.handle = handle;
+
+module.exports.explain = _handler;

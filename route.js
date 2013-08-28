@@ -60,7 +60,7 @@ function header(request,response){
 	this.cookie= request.headers.cookie?querystring.parse(request.headers.cookie,"; ","="):{};
     this.session = {};
     this.session.sessionId = this.cookie.sessionId;
-    this.auth =false;
+    this.auth =true;
     if(filter(this)) return this.emit("finish",this,response);
     this.fields = request.fields;
     this.files = request.files;
