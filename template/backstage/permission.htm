@@ -1,0 +1,67 @@
+<div class="span10">
+    <div class="accordion" id="permissondefined">
+        {#for i = 1 to $T.list.length}
+        <div class="accordion-group">
+            <div class="accordion-heading" >
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#permissondefined" href="#{$T.list[$T.i-1].name_str}">
+                    {$T.list[$T.i-1].name_str}
+                </a>
+            </div>
+            <div id="{$T.list[$T.i-1].name_str}" class="accordion-body collapse">
+                <div class="accordion-inner">
+                    <table class="table table-striped">
+                        <tr>
+                            <td>入口方法</td>
+                            <td>说明</td>
+                            <td>编号</td>
+                            <td>操作</td>
+                        </tr>
+                        {#for j=1 to $T.list[$T.i-1].list.length}
+                        <tr tid="{$T.list[$T.i-1].list[$T.j-1]._id}">
+                            <td {#if !$T.list[$T.i-1].list[$T.j-1]._id}class='text-error'{#else}class='text-success' {#/if}>
+                                {$T.list[$T.i-1].list[$T.j-1].name_str}
+                            </td>
+                            <td class="p_d_description">
+                                {#if $T.list[$T.i-1].list[$T.j-1].description_str}{$T.list[$T.i-1].list[$T.j-1].description_str}{#/if}
+                            </td>
+                            <td class="p_d_code">
+                                {#if $T.list[$T.i-1].list[$T.j-1].code_str}{$T.list[$T.i-1].list[$T.j-1].code_str}{#/if}
+                            </td>
+                            <td>
+                                <a class="p_d_update" href="javascript:;">修改</a>
+                            </td>
+                        </tr>
+                        {#/for}
+                    </table>
+                </div>
+            </div>
+        </div>
+        {#/for}
+    </div>
+</div>
+<div id="p_edict" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="permissionedict_heade">Modal header</h3>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal">
+            <div class="control-group">
+                <label class="control-label" for="p_code">编号</label>
+                <div class="controls">
+                    <input type="text" id="p_code" placeholder="Email">
+                </div>
+            </div>
+            <div cl ass="control-group">
+                <label class="control-label" for="p_discr">说明</label>
+                <div class="controls">
+                    <textarea name="" id="p_discr" cols="30" rows="3"></textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+        <button class="btn btn-primary" id="permissionedict_submit">保存</button>
+    </div>
+</div>
