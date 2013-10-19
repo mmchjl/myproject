@@ -1,0 +1,46 @@
+<table class="table table-striped">
+    <tr>
+        <td>编号</td>
+        <td>请求入口名称</td>
+        <td>编号</td>
+        <td>说明</td>
+        <td>是否启用</td>
+        <td>操作</td>
+    </tr>
+    {#for i=1 to $T.data.count}
+    <tr tid="{$T.data.list[$T.i-1]._id}">
+        <td>{$T.i}</td>
+        <td>{$T.data.list[$T.i-1].name_str}</td>
+        <td>{$T.data.list[$T.i-1].code_str}</td>
+        <td>{$T.data.list[$T.i-1].description_str}</td>
+        <td><input type="checkbox"  disabled="disabled" {#if $T.data.list[$T.i-1].enabled_bool}checked="checked"{#/if}/>  </td>
+        <td><a href="javascript:;" class="btn_permission_define_update">修改</a></td>
+    </tr>
+    {#/for}
+</table>
+<div id="p_d_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="p_d_header">Modal header</h3>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal">
+            <div class="control-group">
+                <label class="control-label" for="p_d_code">编号</label>
+                <div class="controls">
+                    <input type="text" id="p_d_code" placeholder="Email">
+                </div>
+            </div>
+            <div cl ass="control-group">
+                <label class="control-label" for="p_d_discr">说明</label>
+                <div class="controls">
+                    <textarea name="" id="p_d_discr" cols="30" rows="3"></textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+        <button class="btn btn-primary" id="p_d_submit">保存</button>
+    </div>
+</div>

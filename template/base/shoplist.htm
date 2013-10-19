@@ -1,0 +1,14 @@
+<ul class="thumbnails">
+    {#for i = 1 to $T.list.length}
+    <li class="span3">
+        <div class="thumbnail">
+            <h3>{$T.list[$T.i-1].name_str}</h3>
+            <p  style="font-size: 12px">{$T.list[$T.i-1].address}</p>
+            <p  style="font-size: 12px"> <i class="icon-phone"></i> {$T.list[$T.i-1].phone_str}</p>
+            {#for j=1 to $T.list[$T.i-1].tags.length}
+            <i class="badge badge-info">{$T.list[$T.i-1].tags[$T.j-1]}</i>
+            {#/for}
+        </div>
+    </li>
+    {#/for}
+</ul>

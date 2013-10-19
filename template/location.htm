@@ -1,0 +1,62 @@
+﻿<a href="#" id="setposition" role="btn" class="dropdown-toggle" data-toggle="dropdown">定位</a>
+<ul class="dropdown-menu" role="menu" aria-labelledby="setposition">
+    {#for i=1 to $T.list.length}
+        <li><a href="#" lid="{$T.list[$T.i-1]._id}">{#if $T.list[$T.i-1].isSelect_bool}<i class="icon-circle"></i>{#else}<i class="icon-circle-blank"></i>{#/if} {$T.list[$T.i-1].address_str}</a></li>
+    {#/for}
+     <li><a href="#i_l_edict" data-toggle="modal" class="addLocation"><i class="icon-cog"></i>设置</a></li>
+</ul>
+<div id="i_l_edict" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Modal header</h3>
+    </div>
+    <div class="modal-body">
+        <div id="i_l_address_div">
+            <table class="table table-striped" id="i_ll_table">
+            </table>
+        </div>
+        <div id="i_l_area_div" class="active">
+            <div id="i_l_areainner_div">
+                <span id="bsSpan0">省:
+                <select id="bs0">
+                    <option>无
+                    </option>
+                </select></span>
+                <span id="bsSpan1">市:
+                <select id="bs1">
+                    <option>无
+                    </option>
+                </select></span>
+                <span id="bsSpan2">县:
+                <select id="bs2">
+                    <option>无
+                    </option>
+                </select></span>
+                <span>
+                    <input type="text" class="" id="i_l_address_text" />
+                    <input type="button" class="btn btn-primary i_l_floatright" id="i_l_getaddresss_btn" name="name" value="前往" /></span>
+            </div>
+            <form class="form-horizontal i_l_detailaddress_form">
+                <div class="control-group">
+                    <label class="control-label" for="i_l_ensureaddress_text">地址:</label>
+                    <div class="controls">
+                        <input type="text" id="i_l_ensureaddress_text" class="span5" placeholder="请输入你定位的街道地址点击确定，例如XX街XX号">
+                        <input type="button" id="i_l_ensure_btn" class="btn btn-primary i_l_floatright" name="name" value="确定" />
+                    </div>
+                </div>
+            </form>
+            <input name="txt_bs" id="txt_bs" value="" type="text"
+                onclick="G('bsErr').innerHTML = '';"
+                style="width: 80px; display: none;" maxlength="20" />
+            <input type="hidden" name="birth_site" id="birth_site"
+                value="请选择;" />
+            <label id="bsErr" style="color: red; font-size: 12px; display: none"></label>
+            <div class="i_l_uniq" id="i_l_map_div"></div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn addaddress">添加地址</button>
+        <button class="btn btn-primary myaddress">我的地址</button>
+    </div>
+</div>
+

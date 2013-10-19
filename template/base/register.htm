@@ -1,0 +1,114 @@
+﻿<div class="row-fluid">
+    <div class="container">
+        <p>注册流程:</p>
+        <ul class="thumbnails">
+            <li class="span3">
+                <div id="s_r_thumbnail1" class="thumbnail s_r_step">
+                    <p class="text-center">登记店铺</p>
+                </div>
+            </li>
+            <li class="span1" style="line-height: 65px">
+                <strong>></strong>
+            </li>
+            <li class="span3">
+                <div  id="s_r_thumbnail2"  class="thumbnail">
+                    <p class="text-center">定位店铺</p>
+                </div>
+            </li>
+            <li class="span1" style="line-height: 65px">
+                <strong>></strong>
+            </li>
+            <li class="span3">
+                <div  id="s_r_thumbnail3"  class="thumbnail">
+                    <p class="text-center">完成</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="row-fluid">
+    <div class="container s_r_container">
+        <div id="s_r_step1"   >
+            <form class="form-horizontal offset3" style="padding: 10px">
+                <div class="control-group">
+                    <label class="control-label" for="s_r_shopname_txt">店铺名称</label>
+                    <div class="controls">
+                        <input type="text" id="s_r_shopname_txt" placeholder="" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="s_r_phone_txt">联系电话</label>
+                    <div class="controls">
+                        <input type="text" id="s_r_phone_txt" placeholder="" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="s_r_tag_txt">标签</label>
+                    <div class="controls">
+                        <input type="text" id="s_r_tag_txt" class="span3" placeholder="标签最多只能添加2个" />
+                        <input id="s_r_tag_btn" type="button" class="btn" name="" value="添加" />
+                    </div>
+                    <fieldset id="s_r_tags_fields"></fieldset>
+                </div>
+            </form>
+            <br/>
+            <div class="row">
+                <div class="pager">
+                    <input type="button" id="s_r_step1_next_btn" class="btn btn-primary" name="name" value="下一步" />
+                </div>
+            </div>
+        </div>
+        <div id="s_r_step2">
+            <div class="pager">
+                <div id="s_r_mapdiv"  style="width:800px;height: 350px;"></div>
+            </div>
+            <form class="form-horizontal s_r_detailaddress_form" style="display: none">
+                <div class="control-group">
+                    <label class="control-label" for="s_r_ensureaddress_text">地址:</label>
+                    <div class="controls">
+                        <input type="text" id="s_r_ensureaddress_text" class="span5" placeholder="请输入你定位的街道地址点击确定，例如XX街XX号">
+                    </div>
+                </div>
+            </form>
+            <div class="row">
+            <div class="pager">
+                <input type="button" id="s_r_step2_prev_btn" class="btn btn-primary" name="name" value="上一步" />
+                <input type="button" id="s_r_step2_next_btn" class="btn btn-primary" name="name" value="下一步" />
+            </div>
+                </div>
+        </div>
+        <div id="s_r_step3">
+            <div class="row">
+                <div class="hero-unit">
+                    <h5 class="text-center">用户条款</h5>
+                    <div style="height: 400px;overflow-y: scroll">
+                        <p>一、确认与接纳</p>
+                        <p>“楼下100”（http://www.louxia100.com）是上海楼中楼电子商务有限公司（下称“楼中楼公司”）推出的基于全球互联网向用户提供集电子商务、社区服务及类金融服务为一体的综合性网站。“楼下100”及其涉及到的产品、服务、相关软件的所有权和运营权归楼中楼公司所有，楼中楼公司享有对“楼下100”上一切活动的监督、提示、检查、纠正及处罚权利。用户通过注册程序阅读本服务条款并点击“同意”或“接受”按钮完成注册，或以任何行为实际使用、享受“楼下100”的服务，即表示用户与楼中楼公司已达成协议，自愿接受本服务条款的所有内容。如用户不同意本服务条款的条件，则不能使用louxia100.com服务以及注册成为“楼下100”用户。</p>
+
+                        <p>二、服务保护条款</p>
+                        <p>1、“楼下100”服务仅供依法能够且有权订立具有法律约束力合约的自然人、法人及非法人组织使用。因此，用户应为具备完全民事行为能力的自然人，或依法成立、存续的法人或非法人组织。用户违反本项条件，“楼下100”可随时、全权决定拒绝向其提供服务，若因此给“楼下100”或第三方造成损失，用户承担全部赔偿责任。</p>
+                        <p>2、考虑到“楼下100”产品及服务的特性，用户同意： </p>
+                        <p>（1）自备设备，包括PC、调制解调器及配备上网装置，负担上网和支付与此服务有关的通讯费用； </p>
+                        <p>    （2）在参加“楼下100”各类活动时以及“楼下100”提出要求时，提供及时、详尽及准确的个人资料，包括但不限于姓名、性别、年龄、住址/住所地、通讯地址、联系电话、电子邮件地址等； </p>
+                        <p>   （3） 实时更新注册资料，符合及时、详尽、准确的要求。</p>
+                        <p>    3、用户在享用“楼下100”各项服务的同时，同意接受楼中楼公司提供的各类信息服务，这些信息所涉及的内容包括以文字、图片、照片、音视频形式表现的各类订单信息、宣传信息、促销信息、商业信息以及楼中楼公司合作伙伴信息，该类信息的提供方式包括但不限于电子邮件、短信息。用户在“楼下100”注册或实际使用“楼下100”的服务，即表明用户已同意接受此项服务。若用户不希望接收来自“楼下100”的邮件，则可通过回复邮件的方式按照提示自助完成退阅；若用户不希望接收来自“楼下100”的短信，则可联系“楼下100”客户服务部 协助处理。</p>
+                        <p>    4、“楼下100”为用户提供合法的、健康的产品及服务，但是用户应对其使用“楼下100”自行承担责任及风险，楼中楼公司在任何情况下不就因使用或不能使用“楼下100”提供的服务所发生的特殊的、意外的、直接或间接的损失承担赔偿责任。</p>
+                        <p>    5、除非法律规定或者“楼下100”明确承诺，“楼下100”将不对所提供的商品的适用性或满足用户特定需求及目的进行任何明示或者默示的担保。请在购买前确认自身的需求，同时仔细阅读商品说明。</p>
+                        <p>    6、用户在参与活动或交易过程中与其他会员发生纠纷时，一旦一方或双方共同提交“楼下100”要求调处，则“楼下100”有权根据单方判断做出调处决定，用户了解并同意接受“楼下100”的判断和调处决定，该决定将对用户具有约束力。如用户未在限期内执行处理决定，则楼中楼公司有权暂停向其提供服务，暂时冻结其“楼下100”账户内的资金，并采取进一步法律手段解决。 </p>
+                        <p>   7、禁止任何商业目的的注册和购买。“楼下100”鼓励以使用为目的购买楼下100产品，但禁止一切商业目的和商业行为，若用户利用“楼下100”的服务、产品、活动从事任何以商业为目的的行为，楼中楼公司有权采取取消订单、冻结或关闭账户、永久禁止注册等措施，给楼中楼公司造成损失的，用户承担赔偿责任，构成犯罪的，楼中楼公司有权提请国家主管部门追究其行政和刑事责任。</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="pager">
+                    <input type="button" id="s_r_step3_prev_btn" class="btn btn-primary" name="name" value="上一步" />
+                    <input type="button" id="s_r_step3_next_btn" class="btn btn-primary" name="name" value="下一步" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

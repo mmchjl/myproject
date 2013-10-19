@@ -1,0 +1,13 @@
+<ul class="nav nav-tabs" id="tagPanel">
+    {#for i=1 to $T.list.length}
+    <li {#if $T.i==1} class="active"{#/if} app="{$T.list[$T.i-1].app}" ><a href="#{$T.list[$T.i-1].app}">{$T.list[$T.i-1].name}</a></li>
+    {#/for}
+</ul>
+
+<div class="tab-content" >
+    {#for i=1 to $T.list.length}
+    <div class="tab-pane {#if $T.i==1}active{#/if}" id="{$T.list[$T.i-1].app}">
+        {$T.list[$T.i-1].app}
+    </div>
+    {#/for}
+</div>

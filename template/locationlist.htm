@@ -1,0 +1,14 @@
+﻿<tr>
+    <td></td>
+    <td>地址</td>
+    <td>状态</td>
+    <td>操作</td>
+</tr>
+{#for i=1 to $T.list.length}
+<tr tid="{$T.list[$T.i-1].locationId_str}">
+    <td>{$T.i}</td>
+    <td>{$T.list[$T.i-1].address_str}</td>
+    <td>{#if $T.list[$T.i-1].isSelect_bool}<i class="icon-circle i_l_select"></i>{#else}<i class="icon-circle-blank i_l_select"></i>{#/if}</td>
+    <td><a class="i_l_delete_btn" href="javascript:;">删除</a></td>
+</tr>
+{#/for}

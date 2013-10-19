@@ -1,0 +1,57 @@
+[
+    {
+        "name":"用户管理",
+        "app":"usermanage",
+        "subMenu":[
+            {
+                "name":"普通用户",
+                "app":"usermanage_common"
+            },
+            {
+                "name":"商铺" ,
+                "app":"usermanage_shop"
+            },
+            {
+                "name":"管理员" ,
+                "app":"usermanage_admin"
+            },
+            {
+                "name":"超级管理员",
+                "app":"usermanage_superadmin"
+            }
+        ]
+    },
+    {
+        "name":"权限管理",
+        "app":"powermanage",
+        "subMenu":[
+            {
+                "name":"权限定义",
+                "app":"powermanage_define"
+            },
+            {
+                "name":"方法入口定义",
+                "app":"powermanage_entry"
+            },
+            {
+                "name":"权限分配",
+                "app":"powermanage_distribution"
+            }
+        ]
+    },
+    {
+        "name":"个人设置",
+        "app":"personalsetting",
+        "subMenu":[
+            {
+                "name":"我的收藏"
+            },
+            {
+                "name":"位置"
+            },
+            {
+                "name":"历史记录"
+            }
+        ]
+    }
+]
