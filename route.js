@@ -9,6 +9,8 @@ var  config = configuration.config,
     redis = require("./lib/redis.js"),
     session = require("./lib/session.js");
 
+var user = require("./bll/base/user");
+
 formidable.IncomingForm.UPLOAD_DIR = configuration.config.runtime.uploadDir;
 function route(request,response){
     if(request.method=="POST"){
@@ -60,7 +62,7 @@ function header(request,response){
 	this.cookie= request.headers.cookie?querystring.parse(request.headers.cookie,"; ","="):{};
     this.session = {};
     this.session.sessionId = this.cookie.sessionId;
-    this.auth =true;
+    this.auth =false;
     if(filter(this)) return this.emit("finish",this,response);
     this.fields = request.fields;
     this.files = request.files;
@@ -119,14 +121,39 @@ header.prototype.on("finish",function(head,response){
 		}
 	})
 
-header.prototype.get = function(name){
+header.prototype.get = function(name,defaultValue){
     if(this.queryString[name]){
         return this.queryString[name];
     }else if(this.fields[name]){
         return this.fields[name];
+    }else if(this.cookie[name]){
+        return this.cookie[name];
     }else{
-        return undefined;
+        return defaultValue;
     }
+}
+
+header.prototype.setSession = function (key, value) {
+    if (typeof value == "object") {
+        value = JSON.stringify(value);
+    }
+    if (typeof key =="object") {
+        for (var i in key) {
+            this.session.session[i] = key[i];
+        }
+    } else {
+        this.session[key] = value;
+    }
+    //console.dir({ Info: "设置session", session:this.session });
+    session.setSession(this.session)
+}
+
+header.prototype.getUser=function(cb){
+    var cid = this.cookie.cid;
+    if(cid){
+        return user.getUserByCid(cid,cb);
+    }
+    cb();
 }
 
 header.prototype.destroy=function(){

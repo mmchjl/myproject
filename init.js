@@ -310,8 +310,8 @@ http.OutgoingMessage.prototype.setCookie =function(cookie){
         _path = cookie.path?cookie.path:"/";
     var header = "Set-Cookie";
     var value = "";
-    if(_name&&_value) value+=utility.Format("{0}={1}",_name,_value);
-    if(_expires) value=utility.Format("{0}; {1}={2}",value,"expires",_expires);
+    if(_name&&_value) value+=utility.Format(" {0}={1}",_name,_value);
+    if(_expires) value=utility.Format("{0}; {1}={2}",value,"expires",_expires.toGMTString());
     if(_domain) value = utility.Format("{0}; {1}={2}",value,"domain",_domain);
     if(_path) value=utility.Format("{0}; {1}={2}",value,"path",_path);
     if(_secure) value = utility.Format("{0};{1}",value,"secure");
@@ -326,7 +326,7 @@ http.OutgoingMessage.prototype.setCookie =function(cookie){
 
 http.OutgoingMessage.prototype.removeCookie=function(name){
     var key = "Set-Cookie";
-    var value = utility.Format("{0}={1};expires={2};path=/",name,"",(new Date(14626611963)).toGMTString());
+    var value = utility.Format(" {0}={1};expires={2};path=/",name,"",(new Date(14626611963)).toGMTString());
     if(!this._header&&name){
        this.setHeader(key,value);
     }else{

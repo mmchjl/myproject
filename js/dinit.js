@@ -164,11 +164,7 @@
         }
         else {
             if (dataUrl != "") {
-                /*            if (dataUrl.indexOf("http://") < 0) {
-                                dataUrl = NENGLONG_CMP_URL_BASE + dataUrl;
-                            } else if (url.indexOf(window.location.host) < 0) {
-                                dataUrl = Nenglong.System.App.GetProxyUrl(dataUrl, options.params);
-                            }*/
+                $("#body").css({cursor:"wait"});
                 $.ajax({
                     type: options.requestType,
                     dataType: "json",
@@ -178,9 +174,11 @@
                     success: function (data) {
                         _this.templateOnLoadContextArray.push({ "options": options, "data": data, extendOnload: extendOnloadEvent });
                         _this.templateProcess(options, data, contents);
+                        $("#body").css({cursor:"inherit"});
                     },
                     error: function (rs) {
                         if (rs.status != 0) {
+                            $("#body").css({cursor:"inherit"});
                             _this.loadingTemplateCount--;
                             //contents[0].html('loading error!');
                             //设置loading动画begin
@@ -334,7 +332,7 @@
     Template.prototype.getTemplateOptions = function (obj) {
         var app = obj.app, cmd = obj.cmd;
         var returnVal = null;
-
+        //debugger;
         if (typeof (app) != "undefined" && app != null) globalParams.app = app;
         if (typeof (cmd) != "undefined" && cmd != null) globalParams.cmd = cmd;
         var cApp = globalParams.app, cCmd = globalParams.cmd;
@@ -432,7 +430,7 @@
 
 
     //加载进入新版各功能主页
-    EnterMain = function (appEntranceRouteOrFun) {
+    var EnterMain = function (appEntranceRouteOrFun) {
         if ($.isPlainObject(appEntranceRouteOrFun)) {
             load({
                 app: "communicate",
@@ -512,12 +510,12 @@
 
     module.exports.ajax=ajax;
 
-    ajax.postData = function(url, ops, successCallback, errorCallback, async, isStandardFormat) {
-        ajax.ajaxData(url, ops, successCallback, errorCallback, "post", async, isStandardFormat);
+    ajax.post = function(url, ops, successCallback, errorCallback, async, isStandardFormat) {
+        ajax.ajax(url, ops, successCallback, errorCallback, "post", async, isStandardFormat);
     };
 
-    ajax.getData = function(url, ops, successCallback, errorCallback, async, isStandardFormat) {
-        ajax.ajaxData(url, ops, successCallback, errorCallback, "get", async, isStandardFormat);
+    ajax.get = function(url, ops, successCallback, errorCallback, async, isStandardFormat) {
+        ajax.ajax(url, ops, successCallback, errorCallback, "get", async, isStandardFormat);
     };
 
 
@@ -526,7 +524,7 @@
         result: 获取数据结果，true表示成功，false表示出错；没有此值，也表示错误，也会调用errorCallback
         Data: 数据，成功时返回数据json对象，失败时返回错误信息
     }*/
-    ajax.ajaxData = function(url, ops, successCallback, errorCallback, ajaxType, async, isStandardFormat) {
+    ajax.ajax = function(url, ops, successCallback, errorCallback, ajaxType, async, isStandardFormat) {
         var _isStandardFormat = true;
         if (isStandardFormat == false)
             _isStandardFormat = false;
@@ -574,4 +572,5 @@
             }
         }).error(function() { if (errorCallback) errorCallback('连接失败'); });
     };
+
 });

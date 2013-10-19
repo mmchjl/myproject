@@ -25,7 +25,7 @@
                                 {#if $T.list[$T.i-1].list[$T.j-1].description_str}{$T.list[$T.i-1].list[$T.j-1].description_str}{#/if}
                             </td>
                             <td class="p_d_code">
-                                {#if $T.list[$T.i-1].list[$T.j-1].code_str}{$T.list[$T.i-1].list[$T.j-1].code_str}{#/if}
+                                {#if $T.list[$T.i-1].list[$T.j-1].code_str}{$T.list[$T.i-1].code_str+"."+$T.list[$T.i-1].list[$T.j-1].code_str}{#/if}
                             </td>
                             <td>
                                 <a class="p_d_update" href="javascript:;">修改</a>

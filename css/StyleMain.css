@@ -1,3 +1,69 @@
-﻿#main_div{
-    margin-top: 100px;
+﻿#mainDiv {
+    margin-top: 30px;
+}
+
+#permissondefined {
+    position: relative;
+    right: 20px;
+    cursor: inherit;
+}
+
+#i_l_area_div select {
+    width: 100px;
+}
+
+#i_l_map_div {
+    width: 650px;
+    height: 300px;
+}
+
+#i_l_edict {
+    width: 700px;
+    margin-left: -350px;
+}
+
+#i_l_address_text {
+    width: 100px;
+}
+
+.modal-body > div {
+    display: none;
+}
+
+    .modal-body > div.active {
+        display: block;
+    }
+
+.myaddress {
+    float: left;
+}
+
+.i_l_floatright {
+    float: right;
+    margin-right: 50px;
+    margin-top: 3px;
+}
+#i_l_areainner_div {
+    margin-left:49px
+}
+.i_l_detailaddress_form {
+    display:none
+}
+.i_l_select{
+    cursor: pointer;;
+}
+.s_r_container>div{
+    display: none;
+}
+.s_r_step{
+    background-color: #0094ff
+}
+#s_r_tags_fields{
+    padding:20px;
+}
+#s_r_tags_fields i{
+    margin-top: 20px;
+    margin-left: 50px;
+    border: 1px solid #0094ff;
+    padding:3px;
 }

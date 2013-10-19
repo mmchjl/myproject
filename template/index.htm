@@ -1,45 +1,102 @@
-﻿<div class="nav navbar-fixed-top">
+﻿<div class="nav navbar-static-top">
     <div class="navbar">
         <div class="navbar-inner">
             <ul class="nav" id="index_nav">
-                <li><a class="home"  href="javascript:;">主页</a></li>
-                <li><a class="tech head" aType="1"  href="javascript:;">技术文章</a></li>
-                <li><a class="life head" aType="2"  href="javascript:;">生活</a></li>
-                <li><a class="interest head" aType="3" href="javascript:;">兴趣</a></li>
-                <li><a class="about"  href="javascript:;">关于</a></li>
-                <li id='admin' style="display: none"><a href='javascript:;' class=''>admin</a></li>
+                <li><a id="i_i_home_btn" class="" href="javascript:;">主页</a></li>
+                <li><a class="" href="javascript:;">我的收藏</a></li>
+                <li>
+                    <div class="dropdown">
+                        <a id="dLabel" role="btn" class="dropdown-toggle icon-user icon-3x" data-toggle="dropdown" href="javascript:;"></a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                            <li class="dropdown-submenu" id="i_l_list">                                                
+                            </li>
+                            <li><a href="#i_login_modal" data-toggle="modal">登录</a></li>
+                            <li><a href="#i_r_modal" data-toggle="modal">注册</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a id="registshop" href="javascript:;">我要开店</a>
+                </li>
+                <li>
+                    <a id="myshop" href="javascript:;">我的店铺</a>
+                </li>
             </ul>
-            <i class="icon-user icon-3x user_login" href="#loginPanel" data-toggle="modal"></i>
         </div>
     </div>
 </div>
-<hr class=""/>
-<div id="mainDiv" class="block" template="true" load="true"  app="index" cmd="home">
+<hr class="" />
+<div id="mainDiv" class="block" app="index" cmd="home" template="true" load="true">
 </div>
+<footer >
 
-<div id="loginPanel" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+</footer>
+<div id="i_r_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-header">
-        <button type="button" class="close closed" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3>管理员登录</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Modal header</h3>
     </div>
     <div class="modal-body">
         <form class="form-horizontal">
-            <div class="control-group">
-                <label class="control-label" for="loginUserName">Account</label>
+            <div class="control-group i_r_div">
+                <label class="control-label" for="i_r_modal_uid">用户名</label>
                 <div class="controls">
-                    <input type="text" id="loginUserName" placeholder="Account">
+                    <input type="text" id="i_r_modal_uid" placeholder="用户名">
                 </div>
             </div>
-            <div class="control-group">
-                <label class="control-label" for="loginPassword">Password</label>
+
+            <div class="control-group i_r_div">
+                <label class="control-label" for="i_r_modal_pwd1">密码</label>
                 <div class="controls">
-                    <input type="password" id="loginPassword" placeholder="">
+                    <input type="password" id="i_r_modal_pwd1" placeholder="密码">
+                </div>
+            </div>
+            <div class="control-group i_r_div">
+                <label class="control-label" for="i_r_modal_pwd2">重复密码</label>
+                <div class="controls">
+                    <input type="password" id="i_r_modal_pwd2" placeholder="重复密码">
+                </div>
+            </div>
+
+            <div class="control-group i_r_div">
+                <label class="control-label" for="i_r_modal_email">邮箱</label>
+                <div class="controls">
+                    <input type="text" id="i_r_modal_email" placeholder="邮箱">
                 </div>
             </div>
         </form>
     </div>
     <div class="modal-footer">
-        <button class="btn closed" data-dismiss="modal" aria-hidden="true">关闭</button>
-        <button id="btn_login" class="btn btn-primary submit">登录</button>
+        <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+        <button class="btn btn-primary" id="i_r_modal_btn">注册</button>
     </div>
 </div>
+
+<div id="i_login_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="H1">Modal header</h3>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal">
+            <div class="control-group i_login_div">
+                <label class="control-label" for="i_login_uid">用户名</label>
+                <div class="controls">
+                    <input type="text" id="i_login_uid" placeholder="输入户名或邮箱">
+                </div>
+            </div>
+            <div class="control-group i_login_div">
+                <label class="control-label" for="i_login_pwd">密码</label>
+                <div class="controls">
+                    <input type="password" id="i_login_pwd" placeholder="密码">
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+        <button class="btn btn-primary" id="i_login_btn">登录</button>
+    </div>
+</div>
+
+

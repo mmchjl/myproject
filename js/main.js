@@ -11,7 +11,13 @@ seajs.config({
 });
 
 define(function(require,exports,module){
+    var template = require("./dinit");
     var p = require("./route/backstage");
+    var introduction = require("./route/introduction");
+    var index = require("./route/index"),
+     shop = require("./route/shop");
+        load = template.load,
+        templateList = template.templateList;
 
     var string = {
         Format: function() {
@@ -225,5 +231,19 @@ define(function(require,exports,module){
         }
     };
 
-
+    if(!$.cookies.get("cid")){
+         load({
+             app:"introduction",
+             cmd:"init"
+         });
+    }else{
+        load({
+            app: "index",
+            cmd:"init"
+        });
+    }
+    if (typeof JSON == "undefined") {
+        var url = "js/lib/json2";
+        require.async(url);
+    }
 })

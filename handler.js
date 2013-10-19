@@ -40,7 +40,6 @@ function handle(header,response){
 			header.extname="html";
 			header._extname=".html";
 		}
-
     if(handlers[handler]){
         handlers[handler].handle(header,response);
     }else{

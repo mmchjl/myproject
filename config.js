@@ -55,7 +55,8 @@ var mongodb_config = {
     password:"",
     server:"127.0.0.1",
     port:27017,
-    dbname:"project"
+    dbname:"project",
+	connectString:"mongodb://127.0.0.1:27017/project"
 };
 
 var redis_config = {

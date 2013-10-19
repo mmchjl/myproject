@@ -3,16 +3,18 @@
 <head>
     <title>PROJECT</title>
     <link href="css/StyleMain.css" rel="stylesheet" type="text/css" />
-    <link href="css/font-awesome.css" rel="stylesheet" type="text/css"/>
-    <link type="text/css" rel="stylesheet" href="./css/bootstrap.css"/>
+    <link href="css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link type="text/css" rel="stylesheet" href="./css/bootstrap.css" />
+
+
+    <!--<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=FF15603e1554d04799839a1df321cf75"></script>-->
     <script type="text/javascript" src="js/lib/jquery.js"></script>
     <script type="text/javascript" src="js/lib/bootstrap.min.js"> </script>
     <script src="js/lib/jquery-jtemplates.js" type="text/javascript"></script>
-   <!-- <script src="js/init.js" type="text/javascript"></script>-->
     <script src="js/sea-debug.js" type="text/javascript"></script>
-    <script  type="text/javascript">
-        seajs.use("main",function(){
-            $(function(){
+    <script type="text/javascript">
+        seajs.use("main", function () {
+            $(function () {
                 seajs.require("dinit").init();
             });
         })
@@ -20,7 +22,7 @@
 
 </head>
 <body id="body">
-    <div class="nav navbar-fixed-top">
+    <!--<div class="nav navbar-fixed-top">
           <div class="navbar">
               <div class="navbar-inner">
                   <ul class="nav" id="index_nav">
@@ -34,6 +36,11 @@
               </div>
           </div>
       </div>
-    <div class="container" id="main_div" template="true" load="true" app="backstage" cmd="init"></div>
+    <div class="container" id="main_div" template="true" load="true" app="backstage" cmd="init"></div>-->
 </body>
+<script src="http://passport.baidu.com/js/base.js" type="text/javascript" ></script>
+<script src="http://passport.baidu.com/js/siteld_bas.js" type="text/javascript" ></script>
+<script type="text/javascript" src="http://passport.baidu.com/js/sitedata_bas.js" charset="GBK" ></script>
+<!-- <script src="http://passport.baidu.com/js/uinfo_bas.js"  type="text/JavaScript" ></script>-->
+
 </html>
